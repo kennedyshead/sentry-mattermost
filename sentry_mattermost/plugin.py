@@ -60,7 +60,7 @@ def get_tags(event):
         (o.key, o.value): o.get_label()
         for o in TagValue.objects.filter(
             reduce(operator.or_, (Q(key=k, value=v) for k, v in tag_list)),
-            project=event.project,
+            project_id=event.project.id,
         )
     }
     return (
