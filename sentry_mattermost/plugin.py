@@ -52,7 +52,7 @@ def get_tags(event):
     key_labels = {
         o.key: o.get_label()
         for o in TagKey.objects.filter(
-            project=event.project,
+            project_id=event.project.id,
             key__in=[t[0] for t in tag_list],
         )
     }
